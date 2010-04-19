@@ -110,7 +110,7 @@ class CategoriesController < ApplicationController
       end
       format.plist do
         logger.info params[:token]
-        if params[:transaction_receipt].present? #&& check_itunes_receipt(params[:transaction_receipt])
+        if params[:transaction_receipt].present? && check_itunes_receipt(params[:transaction_receipt])
           #OK
         elsif params[:token].present? && params[:token] == daily_token
           #OK
@@ -124,7 +124,7 @@ class CategoriesController < ApplicationController
   end
   
   def check_itunes_receipt(receipt)
-    @receipt = Imobile.validate_receipt(receipt)
+    @receipt = Imobile.validate_receipt(receipt, :sandbox)
     @receipt
   end
   
