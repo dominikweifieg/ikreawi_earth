@@ -1,0 +1,17 @@
+<h1>Frage</h1>
+<p>
+  <b>Body:</b>
+  <%=h @question.body %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @question.comment %>
+</p>
+
+<h2>Antworten</h2>
+<ul>
+	<%= render :partial => @question.answers %>
+<ul>
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', @question.category %>

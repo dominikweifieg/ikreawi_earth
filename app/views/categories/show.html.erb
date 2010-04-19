@@ -1,0 +1,19 @@
+<h1><%=h @category.title %></h1>
+
+<p>
+  <b>Description:</b>
+  <%=h @category.description %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%=h @category.identifier %>
+</p>
+
+<h2>Questions</h2>
+<ol>
+	<%= render :partial => @category.questions %>
+</ol>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

@@ -1,0 +1,1 @@
+<li><%= Answer::LETTERS[answer_counter] %>) <%= answer.body %> <% if(answer.correct) %>Korrekt<% end %> <%= link_to "Editieren", edit_answer_path(answer)%></li>

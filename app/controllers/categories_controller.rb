@@ -1,0 +1,129 @@
+class CategoriesController < ApplicationController
+  require 'imobile'
+  
+    before_filter :logged_in?, :except => [:show, :index]
+    before_filter :check_access, :only => [:show, :index]
+  
+  # GET /categories
+  # GET /categories.xml
+  def index
+    if params[:updated_after].present?
+      @categories = Category.updated_since(params[:updated_after])
+      @token = daily_token
+    else
+      @categories = Category.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @categories }
+      format.plist
+    end
+  end
+
+  # GET /categories/1
+  # GET /categories/1.xml
+  def show
+    @category = Category.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @category }
+      format.plist 
+    end
+  end
+
+  # GET /categories/new
+  # GET /categories/new.xml
+  def new
+    @category = Category.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @category }
+    end
+  end
+
+  # GET /categories/1/edit
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  # POST /categories
+  # POST /categories.xml
+  def create
+    @category = Category.new(params[:category])
+
+    respond_to do |format|
+      if @category.save
+        flash[:notice] = 'Category was successfully created.'
+        format.html { redirect_to(@category) }
+        format.xml  { render :xml => @category, :status => :created, :location => @category }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /categories/1
+  # PUT /categories/1.xml
+  def update
+    @category = Category.find(params[:id])
+
+    respond_to do |format|
+      if @category.update_attributes(params[:category])
+        flash[:notice] = 'Category was successfully updated.'
+        format.html { redirect_to(@category) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /categories/1
+  # DELETE /categories/1.xml
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(categories_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  private 
+  def check_access
+    respond_to do |format|
+      format.html do
+        logged_in?
+      end
+      format.xml do 
+        logged_in?
+      end
+      format.plist do
+        logger.info params[:token]
+        if params[:transaction_receipt].present? #&& check_itunes_receipt(params[:transaction_receipt])
+          #OK
+        elsif params[:token].present? && params[:token] == daily_token
+          #OK
+        elsif params[:updated_after].present?
+          #OK
+        else
+          render :text => "Not authorized"
+        end
+      end
+    end
+  end
+  
+  def check_itunes_receipt(receipt)
+    Imobile.validate_receipt(receipt)
+  end
+  
+  def daily_token
+    Date.new.to_s.hash.to_s(36)
+  end
+end
