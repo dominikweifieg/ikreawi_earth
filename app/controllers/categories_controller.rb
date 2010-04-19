@@ -24,7 +24,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-    @category = Category.find(params[:id])
+    if @receipt
+      @category = Category.find_by_product_id(@receipt[:product_id])
+    else
+      @category = Category.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -120,7 +124,8 @@ class CategoriesController < ApplicationController
   end
   
   def check_itunes_receipt(receipt)
-    Imobile.validate_receipt(receipt)
+    @receipt = Imobile.validate_receipt(receipt)
+    @receipt
   end
   
   def daily_token
