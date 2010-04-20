@@ -25,7 +25,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   def show
     if @receipt
-      @category = Category.find_by_product_id(@receipt[:product_id])
+      @category = Category.find_by_identifier(@receipt[:product_id])
+    elsif params[:product_id].present?
+      @category = Category.find_by_identifier(params[:product_id])
     else
       @category = Category.find(params[:id])
     end
