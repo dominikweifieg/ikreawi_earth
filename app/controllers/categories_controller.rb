@@ -42,7 +42,8 @@ class CategoriesController < ApplicationController
   
   def fetch
     logger.error params[:transaction_receipt]
-    check_itunes_receipt(params[:transaction_receipt])
+    receipt_data = Base64.decode64(params[:transaction_receipt])
+    check_itunes_receipt(receipt_data)
     if @receipt
       logger.error @receipt
       logger.error @receipt[:product_id]
