@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   require 'imobile'
   
-    before_filter :logged_in?, :except => [:show, :index]
-    before_filter :check_access, :only => [:show, :index]
+    before_filter :logged_in?, :except => [:show, :index, :fetch]
+    before_filter :check_access, :only => [:show, :index, :fetch]
   
   # GET /categories
   # GET /categories.xml
@@ -26,12 +26,22 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-    if @receipt
-      @category = Category.find_by_identifier(@receipt[:product_id])
-    elsif params[:product_id].present?
+   if params[:product_id].present?
       @category = Category.find_by_identifier(params[:product_id])
     else
       @category = Category.find(params[:id])
+    end
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @category }
+      format.plist 
+    end
+  end
+  
+  def fetch
+    if @receipt
+      @category = Category.find_by_identifier(@receipt[:product_id])
     end
 
     respond_to do |format|

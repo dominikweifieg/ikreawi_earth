@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/legacy_categories_controller.rb</string>
+	<string>app/controllers/categories_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -49,7 +49,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>71</integer>
+			<integer>14</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
