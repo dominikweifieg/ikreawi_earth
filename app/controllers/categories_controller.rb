@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   
     before_filter :logged_in?, :except => [:show, :index, :fetch]
     before_filter :check_access, :only => [:show, :index, :fetch]
+    protect_from_forgery :except => :fetch
   
   # GET /categories
   # GET /categories.xml
