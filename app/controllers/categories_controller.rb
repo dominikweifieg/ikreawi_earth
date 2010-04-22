@@ -43,12 +43,15 @@ class CategoriesController < ApplicationController
   def fetch
     check_itunes_receipt(params[:transaction_receipt])
     if @receipt
+      logger.error @receipt
+      logger.error @receipt[:product_id]
       @category = Category.find_by_identifier(@receipt[:product_id])
       
       respond_to do |format|
         format.plist 
       end
     else
+      logger.error "FOO!"
       render :text => "Not allowed!"
     end
   end
