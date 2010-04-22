@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   require 'imobile'
   
     before_filter :logged_in?, :except => [:show, :index, :fetch]
-    before_filter :check_access, :only => [:show, :index, :fetch]
+    before_filter :check_access, :only => [:show, :index]
     protect_from_forgery :except => :fetch
   
   # GET /categories
@@ -41,14 +41,15 @@ class CategoriesController < ApplicationController
   end
   
   def fetch
+    check_itunes_receipt(params[:transaction_receipt])
     if @receipt
       @category = Category.find_by_identifier(@receipt[:product_id])
-    end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @category }
-      format.plist 
+      
+      respond_to do |format|
+        format.plist 
+      end
+    else
+      render :text => "Not allowed!"
     end
   end
 
@@ -125,9 +126,7 @@ class CategoriesController < ApplicationController
       end
       format.plist do
         logger.info params[:token]
-        if params[:transaction_receipt].present? && check_itunes_receipt(params[:transaction_receipt])
-          #OK
-        elsif params[:token].present? && params[:token] == daily_token
+        if params[:token].present? && params[:token] == daily_token
           #OK
         elsif params[:updated_after].present?
           #OK
