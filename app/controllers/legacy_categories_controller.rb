@@ -22,7 +22,7 @@ class LegacyCategoriesController < ApplicationController
       category.destroy
     end
     category = Category.new(:title => legacy_category.title, :description => legacy_category.description, 
-      :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize}")
+      :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize('_')}")
     
     legacy_category.legacy_questions.each do |legacy_question|
       question = Question.new do |q|

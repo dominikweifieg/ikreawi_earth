@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
     if params[:updated_after].present?
       @categories = Category.updated_since(params[:updated_after])
       @token = daily_token
+    elsif params[:original_questions].present?
+      @categories = Category.find(:all, :conditions => ["original_pruefung = :original_pruefung", {:original_pruefung => params[:original_questions]}])
     else
       @categories = Category.all
     end
@@ -117,6 +119,8 @@ class CategoriesController < ApplicationController
         elsif params[:token].present? && params[:token] == daily_token
           #OK
         elsif params[:updated_after].present?
+          #OK
+        elsif params[:original_questions].present?
           #OK
         else
           render :text => "Not authorized"
