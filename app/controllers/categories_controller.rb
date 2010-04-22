@@ -41,6 +41,7 @@ class CategoriesController < ApplicationController
   end
   
   def fetch
+    logger.error params[:transaction_receipt]
     check_itunes_receipt(params[:transaction_receipt])
     if @receipt
       logger.error @receipt
