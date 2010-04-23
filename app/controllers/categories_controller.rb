@@ -27,7 +27,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-   if params[:product_id].present?
+    if @receipt
+      @category = Category.find_by_identifier(@receipt[:product_id])
+    elsif params[:product_id].present?
       @category = Category.find_by_identifier(params[:product_id])
     else
       @category = Category.find(params[:id])
@@ -95,7 +97,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.xml
   def update
     @category = Category.find(params[:id])
-
+-
     respond_to do |format|
       if @category.update_attributes(params[:category])
         flash[:notice] = 'Category was successfully updated.'
@@ -131,7 +133,9 @@ class CategoriesController < ApplicationController
       end
       format.plist do
         logger.info params[:token]
-        if params[:token].present? && params[:token] == daily_token
+        if params[:transaction_receipt].present?
+          check_itunes_receipt params[:transaction_receipt]
+        elsif params[:token].present? && params[:token] == daily_token
           #OK
         elsif params[:updated_after].present?
           #OK
@@ -146,6 +150,7 @@ class CategoriesController < ApplicationController
   
   def check_itunes_receipt(receipt)
     @receipt = Imobile.validate_receipt(receipt, :sandbox)
+    logger.info "receipt: #{@receipt}"
     @receipt
   end
   
