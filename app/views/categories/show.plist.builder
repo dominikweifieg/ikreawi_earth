@@ -18,33 +18,31 @@ xml.plist("version" => "1.0") {
       xml.key("ShortName")
       xml.string(@category.title)
       xml.key("Questions")
-      xml.dict {
-        xml.array {
-          @category.questions.each do |question|
-            xml.dict {
-              xml.key("Text")
-              xml.string {
-                xml.cdata!(question.body)
-              }
-              xml.key("Comment")
-              xml.string {
-                xml.cdata!(question.comment)
-              }
-              xml.key("Answers")
-              xml.array {
-                question.answers.each do |answer|
-                  xml.dict {
-                    xml.key("Text")
-                    xml.string(answer.body)
-                    xml.key("Correct")
-                    xml.true if answer.correct
-                    xml.false unless answer.correct
-                  }
-                end
-              }
+      xml.array {
+        @category.questions.each do |question|
+          xml.dict {
+            xml.key("Text")
+            xml.string {
+              xml.cdata!(question.body)
             }
-          end
-        }
+            xml.key("Comment")
+            xml.string {
+              xml.cdata!(question.comment)
+            }
+            xml.key("Answers")
+            xml.array {
+              question.answers.each do |answer|
+                xml.dict {
+                  xml.key("Text")
+                  xml.string(answer.body)
+                  xml.key("Correct")
+                  xml.true if answer.correct
+                  xml.false unless answer.correct
+                }
+              end
+            }
+          }
+        end
       }
     }
   }
