@@ -5,9 +5,9 @@ xml.plist("version" => "1.0") {
     xml.key("ProductId")
     xml.string(@category.identifier)
     xml.key("CreationDate")
-    xml.date(@category.created_at)
+    xml.date(@category.created_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
     xml.key("UpdateDate")
-    xml.date(@category.updated_at)
+    xml.date(@category.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
     xml.key("Original_Pruefung")
     xml.true if @category.original_pruefung
     xml.false unless @category.original_pruefung
