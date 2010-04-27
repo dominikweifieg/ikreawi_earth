@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/categories_controller.rb</string>
+	<string>app/views/categories/show.plist.builder</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -40,14 +40,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>47</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>151</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>101</integer>
+			<integer>0</integer>
 		</dict>
 		<key>app/controllers/legacy_categories_controller.rb</key>
 		<dict>
@@ -68,9 +68,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>60</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>1</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -157,6 +157,20 @@
 				<integer>39</integer>
 				<key>line</key>
 				<integer>14</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/categories/show.plist.builder</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>18</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -307,36 +321,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>db/migrate/20100409101235_create_categories.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>34</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>16</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>34</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-		</dict>
 		<key>public/stylesheets/scaffold.css</key>
 		<dict>
 			<key>caret</key>
@@ -389,10 +373,10 @@
 		<string>app/views/answers/edit.html.erb</string>
 		<string>app/views/answers/show.html.erb</string>
 		<string>app/controllers/categories_controller.rb</string>
+		<string>app/views/categories/show.plist.builder</string>
 		<string>app/views/categories/index.plist.builder</string>
 		<string>test.txt</string>
 		<string>app/controllers/legacy_categories_controller.rb</string>
-		<string>db/migrate/20100409101235_create_categories.rb</string>
 		<string>app/models/category.rb</string>
 		<string>config/routes.rb</string>
 		<string>config/database.yml</string>

@@ -16,7 +16,7 @@ xml.plist("version" => "1.0") {
       xml.key("Name")
       xml.string(@category.title)
       xml.key("ShortName")
-      xml.string(@category.title)
+      xml.string(@category.short_title)
       xml.key("Questions")
       xml.array {
         @category.questions.each do |question|
