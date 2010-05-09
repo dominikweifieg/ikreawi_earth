@@ -97,7 +97,6 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.xml
   def update
     @category = Category.find(params[:id])
--
     respond_to do |format|
       if @category.update_attributes(params[:category])
         flash[:notice] = 'Category was successfully updated.'
