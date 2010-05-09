@@ -1,24 +1,16 @@
 <h1>Listing categories</h1>
 
-<table>
+<table cellpadding="6px" cellspacing="0" border="1">
   <tr>
     <th>Title</th>
+		<th>Short Title</th>
     <th>Description</th>
     <th>Identifier</th>
-		<th>Original Pr&uuml;fung</th>
+		<th colspan="4">Original Pr&uuml;fung</th>
   </tr>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%=h category.title %></td>
-    <td><%=h category.description %></td>
-    <td><%=h category.identifier %></td>
-    <td><%=h category.original_pruefung %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render @categories %>
+
 </table>
 
 <br />

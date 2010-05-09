@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
-
+  
   map.resource :account, :controller => "users"
   
   map.resources :users
@@ -14,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # The priority is based upon order of creation: first created -> highest priority.
   map.resources :legacy_categories
+  
+  map.root :controller => 'categories', :action => 'index'
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
@@ -53,4 +54,5 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
 end

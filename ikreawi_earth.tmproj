@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/categories/show.plist.builder</string>
+	<string>app/controllers/legacy_categories_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,84 +21,28 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>app/controllers/application_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>7</integer>
-				<key>line</key>
-				<integer>50</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/controllers/categories_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>6</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>app/controllers/legacy_categories_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>39</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>28</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/models/category.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>60</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/views/answers/edit.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>39</integer>
-				<key>line</key>
-				<integer>18</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/views/answers/show.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>25</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/views/categories/_category.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>48</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -110,44 +54,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>28</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-		</dict>
-		<key>app/views/categories/index.plist.builder</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>31</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>28</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>38</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
 		</dict>
 		<key>app/views/categories/show.html.erb</key>
 		<dict>
@@ -157,34 +71,6 @@
 				<integer>39</integer>
 				<key>line</key>
 				<integer>14</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/views/categories/show.plist.builder</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>26</integer>
-				<key>line</key>
-				<integer>18</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/views/layouts/application.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>60</integer>
-				<key>line</key>
-				<integer>13</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -263,58 +149,14 @@
 				<integer>0</integer>
 			</dict>
 		</dict>
-		<key>app/views/questions/edit.html.erb</key>
+		<key>db/migrate/20100409101235_create_categories.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>48</integer>
 				<key>line</key>
-				<integer>18</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>config/database.yml</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>15</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>12</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>19</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-		</dict>
-		<key>config/routes.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>40</integer>
-				<key>line</key>
-				<integer>12</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -326,63 +168,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>18</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>55</integer>
+				<integer>72</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>test.txt</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>1981</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>1980</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>1981</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/views/layouts/application.html.erb</string>
-		<string>app/views/questions/edit.html.erb</string>
-		<string>app/views/answers/edit.html.erb</string>
-		<string>app/views/answers/show.html.erb</string>
-		<string>app/controllers/categories_controller.rb</string>
-		<string>app/views/categories/show.plist.builder</string>
-		<string>app/views/categories/index.plist.builder</string>
-		<string>test.txt</string>
-		<string>app/controllers/legacy_categories_controller.rb</string>
-		<string>app/models/category.rb</string>
-		<string>config/routes.rb</string>
-		<string>config/database.yml</string>
-		<string>app/controllers/application_controller.rb</string>
 		<string>public/stylesheets/scaffold.css</string>
 		<string>app/views/categories/index.html.erb</string>
+		<string>app/views/categories/_category.html.erb</string>
+		<string>app/controllers/legacy_categories_controller.rb</string>
+		<string>db/migrate/20100409101235_create_categories.rb</string>
 		<string>app/views/categories/show.html.erb</string>
 		<string>app/views/questions/_question.html.erb</string>
 		<string>app/views/legacy_categories/show.html.erb</string>
