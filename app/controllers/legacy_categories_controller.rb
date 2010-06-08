@@ -18,12 +18,15 @@ class LegacyCategoriesController < ApplicationController
   private 
   def import(legacy_category, reimport)
     if(reimport)
-      category = Category.find_by_old_uid(@category.uid)
-      category.destroy
+      old_category = Category.find_by_old_uid(@category.uid)
+      category = Category.new(:title => old_category.title, :description => old_category.description, 
+        :old_uid => legacy_category.uid, :identifier => old_category.identifier, :short_title => old_category.short_title)
+      old_category.destroy
+    else
+      category = Category.new(:title => legacy_category.title, :description => legacy_category.description, 
+        :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize('_')}".sub(/-/, "_"))
+      category.original_pruefung = legacy_category.title =~ /Prüfung/
     end
-    category = Category.new(:title => legacy_category.title, :description => legacy_category.description, 
-      :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize('_')}".sub(/-/, "_"))
-    category.original_pruefung = legacy_category.title =~ /Prüfung/
     
     legacy_category.legacy_questions.each do |legacy_question|
       question = Question.new do |q|

@@ -59,6 +59,4 @@ after 'deploy:rollback:revision', 'deploy:finalize_update_code'
 
 desc "Finalize update code"
 deploy.task :finalize_update_code do
-  run "ln -s #{shared_path}/aliment_photos #{current_release}/public/aliment_photos"
-  run "ln -s #{shared_path}/user_photos #{current_release}/public/user_photos"
 end
