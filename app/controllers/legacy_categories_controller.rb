@@ -18,10 +18,8 @@ class LegacyCategoriesController < ApplicationController
   private 
   def import(legacy_category, reimport)
     if(reimport)
-      old_category = Category.find_by_old_uid(@category.uid)
-      category = Category.new(:title => old_category.title, :description => old_category.description, 
-        :old_uid => legacy_category.uid, :identifier => old_category.identifier, :short_title => old_category.short_title)
-      old_category.destroy
+      category = Category.find_by_old_uid(@category.uid)
+      category.questions.clear
     else
       category = Category.new(:title => legacy_category.title, :description => legacy_category.description, 
         :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize('_')}".sub(/-/, "_"))
@@ -46,7 +44,10 @@ class LegacyCategoriesController < ApplicationController
           body << "\t\t</ol>"
         end
         q.body = body
-        q.comment = legacy_question.commentedanswer
+        comment = legacy_question.commentedanswer
+        #<link fileadmin/pdf-files_pro/herzinsuffizienz_klinik.pdf _blank download>siuhoisuh skdjhfgig asdf</link>
+        q.comment = comment.gsub(/<link (.*?) (.*?) (.*?)>(.*?)<\/link>/, '<a href="http://www.kreawi-online.de/\1" target="\2" class="\3">\4</a>') 
+        
       end
       category.questions << question
       question.save

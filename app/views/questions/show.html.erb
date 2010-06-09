@@ -6,12 +6,14 @@
 
 <p>
   <b>Comment:</b>
-  <%=@question.comment %>
+  <%=@question.comment.html_safe! %>
 </p>
 
 <h2>Antworten</h2>
 <ul>
 	<%= render :partial => @question.answers %>
 <ul>
+	<p>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', @question.category %>
+</p>
