@@ -148,7 +148,11 @@ class CategoriesController < ApplicationController
   end
   
   def check_itunes_receipt(receipt)
-    @receipt = Imobile.validate_receipt(receipt, :sandbox)
+    if(params[:sandbox].present?)
+      @receipt = Imobile.validate_receipt(receipt, :sandbox)
+    else
+      @receipt = Imobile.validate_receipt(receipt, :production)
+    end
     logger.info "receipt: #{@receipt}"
     @receipt
   end
