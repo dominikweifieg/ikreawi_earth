@@ -1,8 +1,10 @@
 <tr class="<% if category_counter % 2 == 0 %>odd<% else %>even<% end %>">
-    <td><%=h category.title %></td>
+    <td><%=h category.app_name %></td>
+		<td><%=h category.title %></td>
 		<td><%=h category.short_title %></td>
     <td><%=h category.description %></td>
     <td><%=h category.identifier %></td>
+		<td><%=h category.price %></td>
     <td><%=h category.original_pruefung %></td>
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>

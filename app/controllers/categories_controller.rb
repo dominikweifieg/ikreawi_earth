@@ -8,11 +8,13 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.xml
   def index
+    app_name = params[:app_name]
+    app_name = "iKreawi" unless app_name
     if params[:updated_after].present?
-      @categories = Category.updated_since(params[:updated_after])
+      @categories = Category.updated_since(params[:updated_after], app_name)
       @token = daily_token
     elsif params[:original_questions].present?
-      @categories = Category.find(:all, :conditions => ["original_pruefung = :original_pruefung", {:original_pruefung => params[:original_questions]}])
+      @categories = Category.find(:all, :conditions => ["original_pruefung = :original_pruefung AND app_name = :app_name", {:original_pruefung => params[:original_questions], :app_name => app_name}])
     else
       @categories = Category.all
     end
@@ -37,7 +39,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @category }
+      format.xml  { render :xml => @category.to_xml(:include => {:questions => { :include => :answers } } )}
       format.plist 
     end
   end
@@ -128,7 +130,7 @@ class CategoriesController < ApplicationController
         logged_in?
       end
       format.xml do 
-        logged_in?
+        logged_in? unless request.headers["producer"] == "android"
       end
       format.plist do
         logger.info params[:token]

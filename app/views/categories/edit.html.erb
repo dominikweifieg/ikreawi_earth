@@ -2,7 +2,10 @@
 
 <% form_for(@category) do |f| %>
   <%= f.error_messages %>
-
+	<p>
+    <%= f.label :app_name %><br />
+    <%= f.text_field :app_name %>
+  </p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -22,6 +25,10 @@
   <p>
     <%= f.label :identifier %><br />
     <%= f.text_field :identifier %>
+  </p>
+	<p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
   </p>
   <p>
     <%= f.submit 'Update' %>
