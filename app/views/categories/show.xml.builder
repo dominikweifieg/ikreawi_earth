@@ -1,7 +1,12 @@
 xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
 xml.category {
-  xml.name(@category.title)
-  xml.short_name(@category.short_title)
+  xml.name {
+    xml.cdata!(@category.title)
+  }
+  xml.short_name {
+    xml.cdata!(@category.short_title)
+  }
+
   xml.original_question(@category.original_pruefung)
   xml.identifier(@category.identifier)
   xml.questions {
