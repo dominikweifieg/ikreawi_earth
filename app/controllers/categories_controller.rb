@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @category.to_xml(:include => {:questions => { :include => :answers } } )}
+      format.xml 
       format.plist 
     end
   end
@@ -140,8 +140,6 @@ class CategoriesController < ApplicationController
         elsif params[:updated_after].present?
           #OK
         elsif params[:original_questions].present?
-          #OK
-        elsif params[:product_id].present? && request.headers["producer"] == "android"
           #OK
         else
           render :text => "Not authorized"
