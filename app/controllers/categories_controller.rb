@@ -133,7 +133,6 @@ class CategoriesController < ApplicationController
         logged_in? unless request.headers["producer"] == "android"
       end
       format.plist do
-        logger.info params[:token]
         if params[:transaction_receipt].present?
           check_itunes_receipt params[:transaction_receipt]
         elsif params[:token].present? && params[:token] == daily_token
@@ -142,6 +141,7 @@ class CategoriesController < ApplicationController
           #OK
         elsif params[:original_questions].present?
           #OK
+        elsif params[:product_id].present? && request.headers["producer"] == "android"
         else
           render :text => "Not authorized"
         end
