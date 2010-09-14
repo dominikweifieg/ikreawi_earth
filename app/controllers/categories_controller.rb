@@ -142,6 +142,7 @@ class CategoriesController < ApplicationController
         elsif params[:original_questions].present?
           #OK
         elsif params[:product_id].present? && request.headers["producer"] == "android"
+          #OK
         else
           render :text => "Not authorized"
         end
