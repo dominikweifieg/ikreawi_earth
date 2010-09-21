@@ -130,11 +130,13 @@ class CategoriesController < ApplicationController
         logged_in?
       end
       format.xml do 
-        logged_in? unless request.headers["producer"] == "android"
+        #logged_in? unless request.headers["producer"] == "android"
       end
       format.plist do
         if params[:transaction_receipt].present?
           check_itunes_receipt params[:transaction_receipt]
+        elsif params[:initial].present?
+          #OK
         elsif params[:token].present? && params[:token] == daily_token
           #OK
         elsif params[:updated_after].present?
