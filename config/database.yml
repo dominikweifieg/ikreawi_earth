@@ -28,4 +28,14 @@ legacy:
   password: hurle42!butz55?
   database: usr_p27787_1
   encoding: utf8
+  
+  
+kquest: 
+  adapter: mysql
+  host: db1051.mydbserver.com
+  username: p25134d4
+  password: sonja89
+  database: usr_p25134_8
+  encoding: utf8
+
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100910121645) do
+ActiveRecord::Schema.define(:version => 20101005123040) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20100910121645) do
     t.datetime "updated_at"
     t.boolean  "original_pruefung", :default => false
     t.string   "app_name",          :default => "iKreawi"
-    t.string   "price",             :default => ""
+    t.integer  "type_id",           :default => 0
   end
 
   create_table "questions", :force => true do |t|
