@@ -1,0 +1,12 @@
+<h1><%= @category.title %></h1>
+
+<% if @imported %>
+Diese Kategorie wurde schon einmal importiert.<br/>
+<%= link_to "Erneut Importieren", legacy_set_path(@category, :import => true), :confirm => "Diese Kategorie wurde bereits importiert. Das erneute Importieren löscht die Kategorie und alle Ihre Fragen inklusive der Änderungen die evt. vorgenommern wurden" %>
+<% else %>
+<%= link_to "Importieren", legacy_set_path(@category, :import => true), :import => true %>
+<% end %>
+
+<ol>
+<%= render :partial => @category.legacy_questions %>	
+</ol>

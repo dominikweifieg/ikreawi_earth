@@ -9,6 +9,7 @@ xml.category {
 
   xml.original_question(@category.original_pruefung)
   xml.identifier(@category.identifier)
+  xml.type_id(@category.type_id)
   xml.questions {
      @category.questions.each do |question|
        xml.question {

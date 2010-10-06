@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   map.resources :legacy_categories
   
+  map.resources :legacy_sets
+  
   map.resources :kquest_question_sets
   
   map.root :controller => 'categories', :action => 'index'
