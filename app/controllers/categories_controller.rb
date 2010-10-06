@@ -83,8 +83,22 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.xml
   def create
-    @category = Category.new(params[:category])
-
+    if params[:copy_cat].present?
+      copy_cat = Category.find(params[:copy_cat])
+      
+      @category = Category.new(copy_cat.attributes.merge(:old_uid => nil))
+      
+      copy_cat.questions.each do |copy_q|
+        question = Question.new(copy_q.attributes)
+        @category.questions << question
+        copy_q.answers.each do |copy_a|
+          answer = Answer.new(copy_a.attributes)
+          question.answers << answer
+        end
+      end
+    else
+      @category = Category.new(params[:category])
+    end
     respond_to do |format|
       if @category.save
         flash[:notice] = 'Category was successfully created.'
