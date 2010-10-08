@@ -18,7 +18,7 @@ class KquestQuestionSetsController < ApplicationController
   private 
   def import(legacy_category, reimport)
     if(reimport)
-      category = Category.find_by_old_uid(@category.uid.to_i  + 20000)
+      category = Category.find_by_old_uid(@category.set_id.to_i  + 20000)
       category.questions.clear
     else
       category = Category.new(:title => legacy_category.set_name, :description => legacy_category.set_name, 
