@@ -149,6 +149,9 @@ class CategoriesController < ApplicationController
       format.xml do 
         #logged_in? unless request.headers["producer"] == "android"
       end
+      format.json do
+        #OK
+      end
       format.plist do
         if params[:transaction_receipt].present?
           check_itunes_receipt params[:transaction_receipt]
