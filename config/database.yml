@@ -25,7 +25,7 @@ legacy:
   adapter: mysql
   host: db1021.mydbserver.com
   username: p27787
-  password: hurle42!butz55?
+  password: cLahqu2jJH
   database: usr_p27787_1
   encoding: utf8
   
@@ -34,7 +34,7 @@ kquest:
   adapter: mysql
   host: db1051.mydbserver.com
   username: p25134d4
-  password: sonja89
+  password: kpEGCMh4N9
   database: usr_p25134_8
   encoding: utf8
 
