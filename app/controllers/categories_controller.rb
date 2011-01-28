@@ -38,11 +38,12 @@ class CategoriesController < ApplicationController
     else
       @category = Category.find(params[:id])
     end
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml 
       format.plist 
+      format.json { render :json => @category.to_json(:include => {:questions => {:include => :answers }})}
     end
   end
   
