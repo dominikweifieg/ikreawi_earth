@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
     else
       case request.format
       when Mime::JSON
-        @categories = Category.find(:all, :conditions => "app_name = :app_name", {:app_name => app_name})
+        @categories = Category.find(:all, :conditions => ["app_name = :app_name", {:app_name => app_name}])
       else
         @categories = Category.all
       end
