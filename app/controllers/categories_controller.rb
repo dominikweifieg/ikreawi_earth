@@ -18,13 +18,19 @@ class CategoriesController < ApplicationController
     elsif params[:type_id].present?
       @categories = Category.find(:all, :conditions => ["type_id = :type_id AND app_name = :app_name", {:type_id => params[:type_id], :app_name => app_name}])
     else
-      @categories = Category.all
+      case request.format
+      when Mime::JSON
+        @categories = Category.find(:all, :conditions => "app_name = :app_name", {:app_name => app_name})
+      else
+        @categories = Category.all
+      end
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @categories }
       format.plist
+      format.json { render :json => @categories.to_json(:include => {:questions => {:include => :answers }})}
     end
   end
 
