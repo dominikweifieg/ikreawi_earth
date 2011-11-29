@@ -1,0 +1,24 @@
+<h1>Editing trainer_license</h1>
+
+<% form_for(@trainer_license) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :license %><br />
+    <%= f.text_field :license %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :computer_name %><br />
+    <%= f.text_field :computer_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @trainer_license %> |
+<%= link_to 'Back', trainer_licenses_path %>

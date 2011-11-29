@@ -1,0 +1,18 @@
+<p>
+  <b>License:</b>
+  <%=h @trainer_license.license %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @trainer_license.email %>
+</p>
+
+<p>
+  <b>Computer name:</b>
+  <%=h @trainer_license.computer_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_trainer_license_path(@trainer_license) %> |
+<%= link_to 'Back', trainer_licenses_path %>

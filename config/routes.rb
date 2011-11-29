@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :trainer_licenses
+
   map.resource :user_session
   
   map.resource :account, :controller => "users"
@@ -17,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :legacy_sets
   
   map.resources :kquest_question_sets
+  
+  map.resources :trainer_licenses
   
   map.root :controller => 'categories', :action => 'index'
   # Sample of regular route:

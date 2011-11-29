@@ -1,0 +1,24 @@
+<h1>Listing trainer_licenses</h1>
+
+<table>
+  <tr>
+    <th>License</th>
+    <th>Email</th>
+    <th>Computer name</th>
+  </tr>
+
+<% @trainer_licenses.each do |trainer_license| %>
+  <tr>
+    <td><%=h trainer_license.license %></td>
+    <td><%=h trainer_license.email %></td>
+    <td><%=h trainer_license.computer_name %></td>
+    <td><%= link_to 'Show', trainer_license %></td>
+    <td><%= link_to 'Edit', edit_trainer_license_path(trainer_license) %></td>
+    <td><%= link_to 'Destroy', trainer_license, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New trainer_license', new_trainer_license_path %>

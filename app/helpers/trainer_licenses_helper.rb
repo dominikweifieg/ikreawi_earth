@@ -1,0 +1,2 @@
+module TrainerLicensesHelper
+end
