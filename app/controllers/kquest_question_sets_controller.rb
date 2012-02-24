@@ -1,8 +1,8 @@
 class KquestQuestionSetsController < ApplicationController
-  before_filter :logged_in?
+  #before_filter :logged_in?
   
   def index
-    @categories = KquestQuestionSet.all();
+    @categories = KquestQuestionSet.all(:conditions => "set_active = 1");
   end
 
   def show
