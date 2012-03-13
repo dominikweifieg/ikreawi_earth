@@ -57,12 +57,7 @@ class CategoriesController < ApplicationController
     app_name = params[:app_name]
     app_name = "iKreawi" unless app_name
     @category = Category.find(:first, :conditions => ["original_pruefung = :original_pruefung AND app_name = :app_name", {:original_pruefung => true, :app_name => app_name}], :order => "created_at DESC")
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml 
-      format.plist 
-      format.json { render :json => @category.to_json(:include => {:questions => {:include => :answers }})}
-    end
+    render :text => @category.identifier
   end
   
   def fetch
