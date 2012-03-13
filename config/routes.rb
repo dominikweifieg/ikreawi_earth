@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :questions
 
-  map.resources :categories, :member => {:fetch => :post }
+  map.resources :categories, :member => {:fetch => :post }, :member => {:initial => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
   map.resources :legacy_categories

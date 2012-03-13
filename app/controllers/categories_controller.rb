@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   require 'imobile'
   
-    before_filter :logged_in?, :except => [:show, :index, :fetch]
+    before_filter :logged_in?, :except => [:show, :index, :fetch, :initial]
     before_filter :check_access, :only => [:show, :index]
     protect_from_forgery :except => :fetch
   
@@ -45,6 +45,18 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
     end
     
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml 
+      format.plist 
+      format.json { render :json => @category.to_json(:include => {:questions => {:include => :answers }})}
+    end
+  end
+  
+  def initial
+    app_name = params[:app_name]
+    app_name = "iKreawi" unless app_name
+    @category = Category.find(:first, :conditions => ["original_pruefung = :original_pruefung AND app_name = :app_name", {:original_pruefung => true, :app_name => app_name}], :order => "created_at DESC")
     respond_to do |format|
       format.html # show.html.erb
       format.xml 
