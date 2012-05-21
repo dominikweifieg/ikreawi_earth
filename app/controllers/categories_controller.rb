@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @categories }
       format.plist
-      format.json { render :json => @categories.to_json(:include => {:questions => {:include => :answers }})}
+      format.json { render :json => @categories.to_json()}#:include => {:questions => {:include => :answers }})}
     end
   end
 
