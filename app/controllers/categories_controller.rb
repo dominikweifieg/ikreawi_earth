@@ -44,6 +44,7 @@ class CategoriesController < ApplicationController
     elsif params[:product_id].present?
       product_id = params[:product_id]
       product_id = product_id.delete "medizinfragen."
+      logger.info("product_id = #{product_id}")
       @category = Category.find_by_identifier(product_id)
     else
       @category = Category.find(params[:id])
