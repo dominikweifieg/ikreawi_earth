@@ -39,11 +39,11 @@ class CategoriesController < ApplicationController
   def show
     if @receipt
       product_id = @receipt[:product_id]
-      product_id = product_id.delete "medizinfragen."
+      product_id = product_id.sub(/medizinfragen\./, "")
       @category = Category.find_by_identifier(product_id)
     elsif params[:product_id].present?
       product_id = params[:product_id]
-      product_id = product_id.delete "medizinfragen."
+      product_id = product_id.sub(/medizinfragen\./, "")
       logger.info("product_id = #{product_id}")
       @category = Category.find_by_identifier(product_id)
     else
