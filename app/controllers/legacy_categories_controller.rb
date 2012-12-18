@@ -20,6 +20,7 @@ class LegacyCategoriesController < ApplicationController
     if(reimport)
       category = Category.find_by_old_uid(@category.uid)
       category.questions.clear
+      category.touch
     else
       category = Category.new(:title => legacy_category.title, :description => legacy_category.description, 
         :old_uid => legacy_category.uid, :identifier => "de.kreawi.ikreawi.#{legacy_category.title.parameterize('_')}".sub(/-/, "_"))

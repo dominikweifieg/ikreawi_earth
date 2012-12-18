@@ -23,10 +23,10 @@ production:
   
 legacy: 
   adapter: mysql
-  host: db1021.mydbserver.com
-  username: p27787
-  password: cLahqu2jJH
-  database: usr_p27787_1
+  host: db1109.mydbserver.com
+  username: p27787d2
+  password: CvEKmFb8a8hUrF
+  database: usr_p27787_6
   encoding: utf8
   
   

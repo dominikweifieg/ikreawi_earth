@@ -20,6 +20,7 @@ class KquestQuestionSetsController < ApplicationController
     if(reimport)
       category = Category.find_by_old_uid(@category.set_id.to_i  + 20000)
       category.questions.clear
+      category.touch
     else
       category = Category.new(:title => legacy_category.set_name, :description => legacy_category.set_name, 
         :old_uid => legacy_category.set_id.to_i + 20000, :identifier => "de.kreawi.mobile.#{legacy_category.set_name.parameterize('_')}".sub(/-/, "_"))
