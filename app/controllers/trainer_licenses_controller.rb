@@ -10,6 +10,7 @@ class TrainerLicensesController < ApplicationController
         @empty_lic = false
       end
     else
+      @empty_lic = true
       @trainer_licenses = TrainerLicense.all
       @all_licenses = @trainer_licenses
     end
