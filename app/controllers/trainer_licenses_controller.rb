@@ -34,6 +34,9 @@ class TrainerLicensesController < ApplicationController
              render :text => "NOT_FOUND"
            end
         else
+          if @empty_lic
+            render :text => "OK"
+          else
            rejected = false
            found = false
            @trainer_licenses.each do |license|
@@ -53,6 +56,7 @@ class TrainerLicensesController < ApplicationController
            else
              render :text => "NOT_FOUND"
            end
+         end
          end
        end
     end
