@@ -4,6 +4,11 @@ class TrainerLicensesController < ApplicationController
   def index
     if(params[:license].present?)
       @trainer_licenses = TrainerLicense.find_all_by_license(params[:license])
+      if(params[:license].empty?)
+        @empty_lic = true
+      else
+        @empty_lic = false
+      end
     else
       @trainer_licenses = TrainerLicense.all
       @all_licenses = @trainer_licenses
@@ -14,45 +19,42 @@ class TrainerLicensesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @trainer_licenses }
       format.json do
-        render :text => "OK"
-      end
-       # if @trainer_licenses.count == 0
-       #         render :text => "NOT_FOUND"
-       #       elsif @trainer_licenses.count < 2
-       #         registered = false
-       #         @trainer_licenses.each do |license|
-       #           if license.computer_name == params[:computer_name]
-       #             registered = true
-       #           end
-       #         end
-       #         if registered
-       #           render :text => "OK"
-       #         else
-       #           render :text => "NOT_FOUND"
-       #         end
-       #       else
-       #         rejected = false
-       #         found = false
-       #         @trainer_licenses.each do |license|
-       #           if license.computer_name == params[:computer_name]
-       #             found = true
-       #             if license.rejected?
-       #               rejected = true
-       #             end
-       #           end
-       #         end
-       #         if found
-       #           if rejected
-       #             render :text => "REJECTED"
-       #           else
-       #             render :text => "DUPLICATE"
-       #           end
-       #         else
-       #           render :text => "NOT_FOUND"
-       #         end
-       #       end
-     # end
-      
+        if @trainer_licenses.count == 0
+          render :text => "NOT_FOUND"
+        elsif @trainer_licenses.count < 3
+          registered = false
+          @trainer_licenses.each do |license|
+            if license.computer_name == params[:computer_name]
+              registered = true
+            end
+          end
+          if registered
+             render :text => "OK"
+          else
+             render :text => "NOT_FOUND"
+           end
+        else
+           rejected = false
+           found = false
+           @trainer_licenses.each do |license|
+             if license.computer_name == params[:computer_name]
+               found = true
+               if license.rejected?
+                 rejected = true
+               end
+             end
+           end
+           if found
+             if rejected
+               render :text => "REJECTED"
+             else
+               render :text => "DUPLICATE"
+             end
+           else
+             render :text => "NOT_FOUND"
+           end
+         end
+       end
     end
   end
 
