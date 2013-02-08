@@ -27,10 +27,18 @@ class TrainerLicensesController < ApplicationController
           @trainer_licenses.each do |license|
             if license.computer_name == params[:computer_name]
               registered = true
+              if license.rejected?
+                rejected = true
+              end
+              break
             end
           end
           if registered
-             render :text => "OK"
+            if rejected
+              render :text => "REJECTED"
+            else
+              render :text => "OK"
+            end
           else
              render :text => "NOT_FOUND"
            end
