@@ -24,13 +24,13 @@ class TrainerLicensesController < ApplicationController
           render :text => "NOT_FOUND"
         elsif @trainer_licenses.count < 3
           registered = false
+          rejected = false
           @trainer_licenses.each do |license|
             if license.computer_name == params[:computer_name]
               registered = true
               if license.rejected?
                 rejected = true
               end
-              break
             end
           end
           if registered

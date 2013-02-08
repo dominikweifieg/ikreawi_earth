@@ -5,6 +5,8 @@
     <th>License</th>
     <th>Email</th>
     <th>Computer name</th>
+		<th>Rejected</th>
+		<th colspan="3"></th>
   </tr>
 
 <% @trainer_licenses.each do |trainer_license| %>
@@ -12,6 +14,7 @@
     <td><%=h trainer_license.license %></td>
     <td><%=h trainer_license.email %></td>
     <td><%=h trainer_license.computer_name %></td>
+		<td><% if trainer_license.rejected? %>YES<% else %>NO<% end %></td>
     <td><%= link_to 'Show', trainer_license %></td>
     <td><%= link_to 'Edit', edit_trainer_license_path(trainer_license) %></td>
     <td><%= link_to 'Destroy', trainer_license, :confirm => 'Are you sure?', :method => :delete %></td>
