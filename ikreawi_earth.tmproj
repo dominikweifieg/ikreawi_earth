@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/trainer_licenses_controller.rb</string>
+	<string>db/migrate/20111109105809_create_trainer_licenses.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -40,14 +40,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>17</integer>
+				<integer>22</integer>
 				<key>line</key>
-				<integer>32</integer>
+				<integer>111</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>15</integer>
+			<integer>96</integer>
 		</dict>
 		<key>app/models/trainer_license.rb</key>
 		<dict>
@@ -135,6 +135,36 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>config/database.yml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>15</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>19</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+		</dict>
 		<key>db/migrate/20111109105809_create_trainer_licenses.rb</key>
 		<dict>
 			<key>caret</key>
@@ -153,6 +183,7 @@
 	<key>openDocuments</key>
 	<array>
 		<string>app/controllers/trainer_licenses_controller.rb</string>
+		<string>config/database.yml</string>
 		<string>app/views/trainer_licenses/index.html.erb</string>
 		<string>app/views/trainer_licenses/edit.html.erb</string>
 		<string>app/controllers/categories_controller.rb</string>

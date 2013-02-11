@@ -11,7 +11,7 @@ class TrainerLicensesController < ApplicationController
       end
     else
       @empty_lic = true
-      @trainer_licenses = TrainerLicense.all
+      @trainer_licenses = TrainerLicense.all(:order => "license ASC")
       @all_licenses = @trainer_licenses
     end
     
@@ -105,17 +105,17 @@ class TrainerLicensesController < ApplicationController
 
     saved = @trainer_license.save
     
-    if saved
-      @trainer_licenses = TrainerLicense.find(:all, :conditions => ["license = :license", {:license => params[:trainer_license][:license]}], :order => "created_at DESC");
-      if @trainer_licenses.count > 3
-        @trainer_licenses.each_with_index do | license, index |
-          if index > 2
-            license.rejected = true
-            license.save
-          end
-        end
-      end
-    end
+    # if saved
+    #       @trainer_licenses = TrainerLicense.find(:all, :conditions => ["license = :license", {:license => params[:trainer_license][:license]}], :order => "created_at DESC");
+    #       if @trainer_licenses.count > 3
+    #         @trainer_licenses.each_with_index do | license, index |
+    #           if index > 2
+    #             license.rejected = true
+    #             license.save
+    #           end
+    #         end
+    #       end
+    #     end
 
     respond_to do |format|
       if saved
