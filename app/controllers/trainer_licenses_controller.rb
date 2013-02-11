@@ -107,9 +107,9 @@ class TrainerLicensesController < ApplicationController
     
     if saved
       @trainer_licenses = TrainerLicense.find(:all, :conditions => ["license = :license", {:license => params[:trainer_license][:license]}], :order => "created_at DESC");
-      if @trainer_licenses.count > 2
+      if @trainer_licenses.count > 3
         @trainer_licenses.each_with_index do | license, index |
-          if index > 1
+          if index > 2
             license.rejected = true
             license.save
           end
