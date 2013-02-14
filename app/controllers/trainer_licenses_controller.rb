@@ -106,6 +106,7 @@ class TrainerLicensesController < ApplicationController
     saved = @trainer_license.save
     
     if saved
+      unless(params[:trainer_license][:license].present? || params[:trainer_license][:license].empty?)
        @trainer_licenses = TrainerLicense.find(:all, :conditions => ["license = :license", {:license => params[:trainer_license][:license]}], :order => "created_at DESC");
       if @trainer_licenses.count > 2
         @trainer_licenses.each_with_index do | license, index |
@@ -115,6 +116,7 @@ class TrainerLicensesController < ApplicationController
           end
         end
       end
+    end
     end
 
     respond_to do |format|
