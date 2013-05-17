@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/controllers/trainer_licenses_controller.rb</string>
+	<string>config/routes.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -54,14 +54,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>36</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>109</integer>
+				<integer>118</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>94</integer>
+			<integer>85</integer>
 		</dict>
 		<key>app/models/answer.rb</key>
 		<dict>
@@ -231,6 +231,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/views/users/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>config/database.yml</key>
 		<dict>
 			<key>caret</key>
@@ -261,6 +275,20 @@
 				<integer>21</integer>
 			</dict>
 		</dict>
+		<key>config/routes.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>19</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>db/migrate/20111109105809_create_trainer_licenses.rb</key>
 		<dict>
 			<key>caret</key>
@@ -279,6 +307,8 @@
 	<key>openDocuments</key>
 	<array>
 		<string>app/controllers/trainer_licenses_controller.rb</string>
+		<string>app/views/users/new.html.erb</string>
+		<string>config/routes.rb</string>
 		<string>app/controllers/answers_controller.rb</string>
 		<string>app/models/answer.rb</string>
 		<string>app/models/category.rb</string>
