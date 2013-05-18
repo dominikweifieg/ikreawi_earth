@@ -1,5 +1,5 @@
 class TrainerLicensesController < ApplicationController
-  before_filter :logged_in?
+  before_filter :logged_in?, :except => [:index, :create]
   # GET /trainer_licenses
   # GET /trainer_licenses.xml
   def index
