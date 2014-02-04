@@ -5,7 +5,7 @@ class LegacySet < ActiveRecord::Base
   self.inheritance_column = ""
   
   has_many :legacy_set_questions, :foreign_key => :uid_local, :primary_key => :uid
-  has_many :legacy_questions, :through => :legacy_set_questions
+  has_many :legacy_questions, -> { where("deleted = 0") }, :through => :legacy_set_questions
   
   def primary_key
     "uid"
